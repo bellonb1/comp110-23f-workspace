@@ -45,16 +45,16 @@ def main() -> None:
     """Main function, starts game."""
     turn: int = 1
     secret: str = "codes"
-
-    while turn < len(secret) + 1:
-        print("=== Turn " + str(turn) + "/" + str(len(secret)) + " ===")
+    turn_max: int = 6
+    while turn < turn_max:
+        print("=== Turn " + str(turn) + "/" + str(turn_max) + " ===")
         user_input = input_guess(len(secret))
         print(emojified(user_input, secret))
         if user_input == secret:
             print("You won in " + str(turn) + "/" + str(len(secret)) + " turns!")
             exit()
         turn += 1
-    print("X/" + str(len(secret)) + " - Sorry, try again tomorrow!")
+    print("X/" + str(turn_max) + " - Sorry, try again tomorrow!")
 
 
 if __name__ == "__main__":
