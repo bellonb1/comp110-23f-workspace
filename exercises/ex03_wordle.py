@@ -46,15 +46,18 @@ def main() -> None:
     turn: int = 1
     secret: str = "codes"
     turn_max: int = 6
-    while turn < turn_max:
+    has_won: bool = False
+
+    while turn < turn_max + 1 and has_won == False:
         print("=== Turn " + str(turn) + "/" + str(turn_max) + " ===")
         user_input = input_guess(len(secret))
         print(emojified(user_input, secret))
         if user_input == secret:
-            print("You won in " + str(turn) + "/" + str(len(secret)) + " turns!")
-            exit()
+            print("You won in " + str(turn) + "/" + str(turn_max) + " turns!")
+            has_won = True
         turn += 1
-    print("X/" + str(turn_max) + " - Sorry, try again tomorrow!")
+        if turn > turn_max:
+            print("X/" + str(turn_max) + " - Sorry, try again tomorrow!")
 
 
 if __name__ == "__main__":
