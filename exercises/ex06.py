@@ -29,7 +29,6 @@ def favorite_color(color: dict[str, str]) -> str:
         if counter_dict[key] > highest:
             highest = counter_dict[key]
             return_str = key
-    
     return return_str
 
 
