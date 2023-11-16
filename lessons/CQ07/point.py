@@ -7,7 +7,21 @@ class Point:
     x: float
     y: float
 
-    def __init__(self, x_init: float, y_init: float):
+    def __str__(self) -> str:
+        """Prints out points in a readable way."""
+        return "x: " + str(self.x) + "; " + "y: " + str(self.y)
+
+    def __mul__(self, factor: int | float) -> Point:
+        """Scale function with __mul__ functionality."""
+        new_point: Point = Point(self.x * factor, self.y * factor)
+        return new_point
+
+    def __add__(self, factor: int | float) -> Point:
+        """Add function with __sum__ functionality."""
+        new_point: Point = Point(self.x + factor, self.y + factor)
+        return new_point
+    
+    def __init__(self, x_init: float = 0.0, y_init: float = 0.0):
         """Point constructor."""
         self.x = x_init
         self.y = y_init
@@ -21,5 +35,4 @@ class Point:
         """Returns Point object multiplied by factor."""
         new_point: Point = Point(self.x * factor, self.y * factor)
         return new_point
-
     

@@ -10,10 +10,12 @@ def draw_window(masterpiece: Turtle, xcoord: float, ycoord: float, length: float
     """Creates a window, starting at bottom left corner."""
     masterpiece.color("cyan")
     masterpiece.begin_fill()
+
     masterpiece.penup()
     masterpiece.setposition(xcoord, ycoord)
     masterpiece.setheading(90)
     masterpiece.pendown()
+    
     for i in range(4):
         masterpiece.forward(length)
         masterpiece.right(90)
